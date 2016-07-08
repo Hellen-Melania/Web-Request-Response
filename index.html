@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Terletska_hw-1</title>
+	<style>
+		.task-2 img{
+			text-align: center;
+			word-spacing: 80%;
+		}
+		.task-2 p{
+			font-size: 16px;
+			font-weight: bold;
+		}
+	</style>
+</head>
+<body>
+	<h1>Hometask for "Web Request & Response" lecture</h1>
+	<section class='task-2'>
+		<h2>2.1 List of websites with request/response</h2>
+		<ol>
+			<li>
+				<p>github.com</p>
+				<img src="img/github_network.png" alt="">
+				<img src="img/github_request.png" alt="">
+			</li>
+			<li>
+				<p>vk.com</p>
+				<img src="img/vk_network.png" alt="">
+				<img src="img/vk_request.png" alt="">
+			</li>
+			<li>
+				<p>uk.wikipedia.org</p>
+				<img src="img/uk.wikipedia.org_network.png" alt="">
+				<img src="img/uk.wikipedia.org_request.png" alt="">
+			</li>
+			<li>
+				<p>ru.pinterest.com</p>
+				<img src="img/pinterest_network.png" alt="">
+				<img src="img/pinterest_request.png" alt="">
+			</li>
+		</ol>
+		<h2>2.2 List of headers</h2>
+		<ul>
+			<li>HTTP Status Codes
+				<ul>
+					<li>200, використовуються для успішних запитів</li>
+					<li>300 є для перенаправлень</li>
+					<li>400, використовуються, якщо виникла проблема із запитом</li>
+					<li>500, використовуються, якщо виникла проблема з сервером</li>
+				</ul>
+			</li>
+			<li>Accept призначений для інформування сервера про типах даних, які підтримуються клієнтом (браузером). У цьому заголовку браузер перераховує, які типи документів він "розуміє".</li>
+			<li>Content-type призначений для ідентифікації типу переданих даних. При цьому заголовок Content-type використовує змінну оточення CONTENT_TYPE. Зазвичай для цього заголовка вказується значення application / x-www-form-urlencoded. Таким чином, вказується формат, в якому всі керуючі символи (тобто символи, які не є алфавітно-цифровими) спеціально кодуються.</li>
+			<li>Content-length містить рядок, в якій записана довжина переданих даних в байтах при використанні методу передачі POST. За заголовком закріплена однойменна змінна CONTENT_LENGTH.Якщо задіюється метод GET, то цей заголовок відсутній, і значить, змінна оточення не встановлюється.</li>
+			<li>Cookie зберігаються всі Cookies. Даний заголовок використовує змінну оточення HTTP_COOKIE. Для встановлення Cookies використовується заголовок Set-Cookie.</li>
+			<li>GET використовує такі змінні:
+				<ul>
+					<li>REQUEST_URI - запитуваний ідентифікатор ресурсу;</li>
+					<li>QUERY_STRING - передані сценарієм параметри;</li>
+					<li>REQUEST_METHOD -  метод передачі інформації.</li>
+				</ul>
+				В даному випадку ця змінна буде містити значення GET.
+			</li>
+			<li>Location --> Отримавши заголовок Location разом із зазначеним у ньому URL, сервер негайно переходить за вказаною URL, не чекаючи, поки тіло документа завантажиться:</li>
+			<li>POST використовує ті ж змінні оточення, що і заголовок GET (змінна REQUEST_METHOD містить значення POST). Дані методом POST можна передавати в кінці заголовків.</li>
+			<li>Pragma -- > Даний заголовок використовується для різних цілей, одна з яких - це заборона кешування документа.
+			Приклад заголовка: Pragma: no-cache</li>
+			<li>Server містить назву і версію програмного забезпечення сервера.</li>
+			<li>Referer --> За допомогою цього заголовка можна дізнатися сервер який посилається на нас. Це буває корисно, коли нам необхідно дізнатися зворотні посилання, наприклад, при аналізі ефективності мережевої реклами.</li>
+			<li>User-Agent містить версію браузера, ОС. Наприклад: User-Agent: Mozilla / 5.0 (compatible; Konqueror / 3.0.0-10; Linux).</li>
+			<li>Accept-Language відображає настройки мови за замовчуванням користувача.</li>
+			<li>Accept-Encoding--> Більшість сучасних браузерів підтримують GZIP, і відправиляють це в заголовку. Далі веб-сервер  може послати HTML в стислому форматі, що зменшує розмір до 80%.</li>
+			<li>Authorization --> data base64 encoded</li>
+			<li>Content-Encoding зазвичай встановлюється, коли повертається вміст архівом(стислий).</li>
+			<li>Host - ім'я хоста</li>
+			<li>Cache-Control -використовується для вказівки директиви, які повинні дотримуватися всіма механізмами кешування уздовж ланцюжка запиту / відповіді. Наприклад: Cache-Control: max-age=3600, public </li>
+			<li>Content-Disposition  інструктує браузер, щоб відкрити файл вікно завантаження, замість того, щоб намагатися розібрати зміст. приклад: Content-Disposition: attachment; filename="download.zip"</li>
+			<li>Etag - використовується для кешування</li>
+			<li>Last-Modified вказує на дату останньої зміни документа, в форматі GMT: Last-Modified: Sat, 28 Nov 2009 03:50:37 GM</li>
+		</ul>
+	</section>
+	<section class='task-3'>
+		<h2> 3. What is differenct between HTTP version 1.0 and 1.1?</h2>
+		<h4>HTTP 1.0 (1994)</h4>
+		<p>При роботі по протоколу HTTP 1.0 з подібним типом з'єднання немає офіційної специфікації. По суті, це доповнення до існуючого протоколу. Якщо браузер підтримує постійні з'єднання, він посилає додатковий заголовок в запиті: Connection: Keep-Alive
+		Потім, коли сервер отримує такий запит і генерує відповідь, він також додає в заголовок відповіді
+			Connection: Keep-Alive
+		Після цього з'єднання не розривається, а залишається відкритим. Коли клієнт відправляє ще один запит, він використовує це ж з'єднання. Так буде тривати до тих пір, поки клієнт або сервер не вирішать, що обмін закінчено, і одна зі сторін завершить з'єднання.
+		</p>
+		<h4>HTTP 1.1 (1996- 2015)</h4>
+		<ul>
+			<li>Формалізує багато розширень до версії 1.0</li>
+			<li>Підтримує постійнe і конвеєрне з'єднання</li>
+			<li>Підтримка Chunked трансфери, стиснення / декомпресія</li>
+			<li>Підтримка віртуального хостингу</li>
+			<li>Підтримка декількох мов</li>
+			<li>Kорисний для відновлення перерваних передач даних</li>
+			<li></li>
+		</ul>
+	<ul>HTTP 1.1 є розширення HTTP 1.0. Нижче перераховані чотири основних покращення:
+		<li>Ефективне використання IP-адрес, що дозволяють обслуговувати кілька доменів з однієї IP-адреси.</li>
+		<li>Швидке реагування, тобто веб-браузер може відправляти кілька запитів по одному зв'язку.</li>
+		<li>Додовання підтримки кешу</li>
+		<li>Підтримки фрагментованого кодування</li>
+		<li>підтримка активності з'єднання і таким чином збільшення продуктивності</li>
+	</ul>
+	<h4>Відмінності</h4>
+	<p>Найбільша відмінність в тому що HTTP / 1.0 передбачає передачу лише одного запиту і одної відповіді через одне TCP з'єднання, а HTTP / 1.1 - багатьох, тобто для того щоб викачати скажімо п'ять файлів з сервера зовсім необов'язково п'ять разів встановлювати TCP з'єднання з ним</p>
+	<ul>
+		<li>Extensibility</li>
+		<li>Caching</li>
+		<li>Bandwidth optimization</li>
+		<li>Network connection management</li>
+		<li>Message transmission</li>
+		<li>Internet address conservation</li>
+		<li>Error notification</li>
+		<li>Security, integrity, and authentication</li>
+		<li>Content negotiation</li>
+	</ul>
+
+
+	<h2>GET and POST</h2>	
+	<div>
+		GET: отримати доступ до існуючого ресурсу. В URL перерахована вся необхідна інформація, щоб сервер зміг знайти і повернути в якості відповіді шуканий ресурс.
+	<p>Приклад простого запиту: GET http://phpbook.info/</p>
+	</div>
+	<div>
+		POST: використовується для створення нового ресурсу. POST запит, що зазвичай містить в собі всю потрібну інформацію для створення нового ресурсу.
+		<p>Приклад простого запиту: POST http://phpbook.info/cgi-bin/test HTTP/1.0</p>
+	</div>
+	<div>
+		<h4>Відмінності</h4>
+		<p>GET передає дані серверу використовуючи URL, коли POST передає дані, використовуючи тіло HTTP запиту.
+			Довжина URL'а обмежена 1024 символів, це і буде верхнім обмеженням для даних, які можна відіслати GET'ом.
+			POST може відправляти набагато більші обсяги даних. Ліміт встановлюється веб-сервером і звичайно дорівнює близько 2MB.
+			Передача даних методом POST більш безпечна, ніж методом GET, так як секретні дані (наприклад пароль) не відображаються безпосередньо в web-клієнта користувача (на відміну від URL, який видно майже завжди).</p>
+	</div>
+		<p>POST - в основному  використовується для того, щоб передавати великі обсяги даних. Наприклад, при завантаженні файлів через Web або при обробці форм. Крім того, метод POST часто використовують для естетичних цілей: справа в тому, що при застосуванні GET - URL сценарій стає досить довгим і незграбним. Передані сценарієм параметри не відображаються у вікні браузера, POST-запит залишає URL без зміни. </p>
+		
+	</section>
+	<section>
+		
+	</section>
+		<h2>4.Telnet</h2>
+		<img src="img/telnet.png" alt="">
+		<pre>
+			user@Avia221:~$ telnet www.google.com.ua 80
+			Trying 173.194.113.223...
+			Connected to www.google.com.ua.
+			Escape character is '^]'.
+			GET / HTTP/1.1
+			host: www.google.com.ua
+
+			HTTP/1.1 200 OK
+			Date: Wed, 06 Jul 2016 06:47:26 GMT
+			Expires: -1
+			Cache-Control: private, max-age=0
+			Content-Type: text/html; charset=windows-1251
+			P3P: CP="This is not a P3P policy! See https://www.google.com/support/accounts/answer/151657?hl=en for more info."
+			Server: gws
+			X-XSS-Protection: 1; mode=block
+			X-Frame-Options: SAMEORIGIN
+			Set-Cookie: NID=81=xJRgRCVfkz2MBR32cgatvZK5A6BnCKntoNrTkm9A_Lsh05hxeYm0naEt7oPFlzXVZEp64MxOKyXdV6mdEWelLVwgHQlRPyOQohCmesa84Hxyv4CEFUpJHVyKHbHNlMkh; expires=Thu, 05-Jan-2017 06:47:26 GMT; path=/; domain=.google.com.ua; HttpOnly
+			Accept-Ranges: none
+			Vary: Accept-Encoding
+			Transfer-Encoding: chunked
+		</pre>
+		
+	<section>
+		<h2>5.Use actions on "Network" tab</h2>
+		
+		<p>В цьому розділі показуються всі запити, виконані при завантаженні даної сторінки і її компонентів.
+		<ul>
+		 	<li>Стовпець «Method» містить тип запиту (GET, POST).</li>
+		 	<li>«Status» - відповідь сервера, він повинен бути 200 ОК. Тут важливо звернути увагу на помилки 404 і 403, які слід усунути. Їх причинами можуть бути неправильні адреси (атрибути src). Редіректи 301 і 302 також бажано усунути, щоб зменшити загальну кількість запитів, а значить і швидкість завантаження сайту.</li>
+		 	<li>«Type» - тип вмісту, наприклад для веб-документів має бути text / html.</li>
+		 	<li>«Size / Content» - розмір кожного запитаного компонента.</li>
+		 	<li>«Time / Latency» - час завантаження.</li>
+		</ul> 
+		Загалом за допомогою інструменту Networks можна оцінити і проаналізувати роботу сервера, розміри файлів і постаратися зменшити їх вагу(розмір) де це можливо для пониження навантаження на сервер, а ще виявити і усунути можливі помилки.
+		</p>
+		<p>Filter, search and ordering by columns - пошук інформації в браузері(required source...)
+			<img src="img/network.png" alt="">
+		</p>
+
+		<h4> Network складається з п'яти панелей:</h4>
+		<ul>
+			<li>Controls - контролює вигляд і функціонал</li>
+			<li>Filters - фільтрування даних в таблиці</li>
+			<li>Overview - показує тимчасову шкалу коли був отриманий ресурс</li>
+			<li>Requests Table - таблиця перераховує всі ресурси, які були вилучені. За замовчуванням сортується в хронологічному порядку, з самих ранніх ресурсів у верхній частині. При натисканні на ім'я ресурсу дає більше інформації про нього.  </li>
+			<li>Summary - повідомляє про  загальну кількість запитів, кількість переданих даних і час завантаження</li>
+		</ul>
+	</section>
+	<section>
+		<h3>6.Using the https://www.hurl.it/  GET</h3>
+		<img src="img/6_get_youtube.png" alt="">
+		<ul>Типи заголовків:
+			<li>General Headers - використовуються у запитах і відповідях.</li>
+			<li>Request Headers -  використовуються тільки у запитах</li>
+			<li>Response Headers - використовуються тільки у відповідях</li>
+			<li>Entity Headers - супроводжують кожну сутність повідомлення. Використовуються в запитах і відповідях.</li>
+		</ul>
+		<p>GET -- > Заголовки відповіді можуть кешуватися. При розбіжності метаданих ресурсу з відповідною інформацією в кеші копія ресурсу позначається як застаріла.(див.п2 опис заголовків)</p>
+	</section>
+	<section>
+		<h3>7.Using the https://www.hurl.it/ HEAD</h3>
+		<p>HEAD такий як GET, але повертає тільки HTTP заголовки, без тіла документу.</p>
+		<img src="img/7_head_youtube.png" alt="">
+	</section>
+	<section>
+		<h3>8. Find and show few (at least 5) resources, where POST method is used</h3>
+		<ul>
+			<li>tickets.ua</li>
+			<li>vk.com</li>
+			<li>facebook</li>
+			<li>youtube.com</li>
+			<li>twitter</li>
+		</ul>
+		Даний метод використаний у формах, передачі даних, для підписки, логування, оплати, feedback-ів та ін.
+
+	</section>	
+
+	<section class="task-9">
+		<h3>9.Postman</h3>
+		<h4> getpostman.com </h4>
+			<img src="img/echo.getpostman.com_POST.png" alt="">
+		<h4> linkedin.com </h4>
+			<img src="img/linkedin_POST.png" alt="">
+		<h4> tickets.ua </h4>			
+			<img src="img/tickets.ua_HEAD.png" alt="">
+		<h4> vk.com </h4>
+			<img src="img/vk.com_GET.png" alt="">
+		<h4>w3school.com </h4>
+			<img src="img/www.w3school_HEAD.png" alt="">
+		<h4>youtube.com </h4>
+			<img src="img/youtube_GET.png" alt="">
+	
+	</section>
+</body>
+</html>
